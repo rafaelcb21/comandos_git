@@ -1,0 +1,131 @@
+Controle de Versões Distribuidos de Arquivos/Projetos
+Comandos do Git
+
+git config --global user.name "Rafael Braga"
+git config --global user.email "rafaelcb21@gmail.com"
+
+git -> propriedades -> coloca a pasta padrao, ganhando produtividade
+
+git init -> cria o repositorio no diretorio em que vc esta, criará um diretorio .git
+
+git status
+
+git add arquivo *.txt ou .
+
+git commit -m "mensagem"
+
+git commit -a -m "mensagem" pula o add
+
+.gitignore
+.gitignore
+arquivo.txt
+/pasta 
+
+
+git diff => mostra as mudancas feitas antes de ir para o stage area
+
+git diff --staged => mostra as mudancas feitas que estao no stage area
+
+git log => mostra todos os commits feitos
+
+git log -p => mostra todos os commits feitos e o diff
+
+git log -p -1(n) => traz 1 commit + diff
+
+Para visualizar relatorio é melhor a interface grafica
+gitk => vai para a interface grafica
+
+git log --pretty=oneline => mostra só o codigo do commit e o nome do commit
+
+git commit --amend -m "mensagem (edicao)" => o amend junta o commit atual com o anterior e muda tb o nome do commit, nao cria um novo commit, criará uma nova chave e mensagem de commit
+
+git reset HEAD arquivo => tira um arquivo da stage area
+
+git checkout -- arquivo => faz o arquivo voltar ao estado original na sua work area
+
+git rm arquivo => exclui arquivos da stage area quando vc add um arquivo e depois exclui na work area.
+
+
+
+tag é uma etiqueta, um atalho. geralmente usada para destacar uma versao 1.0 2.0 etc.
+
+git tag => ver as tags
+
+git tag -a v1.0 -m "versao 1.0" => o "a" é para criar uma tag anotada, caso contrario será somente um ponteiro sem anotacao
+
+git tag -a v0.0 chave -m "versao v0.0" => inserir uma tag num commit anterior
+
+git tag
+
+git show v0.0
+
+git checkout v0.0 => os arquivos da tag voltam para sua work area
+
+git checkout master => volta para o ramo master
+
+git tag -d v0.0 => deleta uma tag
+
+
+git branch teste => cria o ramo teste
+
+git checkout teste => vai para o ramo teste, saido assim do master
+
+git checkout -b teste => criara o ramo teste e ja faz a troca para esse ramo e trabalha normalmente
+
+git checkout master => volta para o ramo master
+
+git merge teste => tras os commits do ramo teste (origem), tenho que estar no checkout do destino, que no caso é o master
+
+git branch -d teste => deleta o ramo teste
+
+git branch => lista todos os ramos
+
+conflito de merge, apos dar o comando de merge, precisa ir no arquivo e escolher qual mudança ficará (master|MERGING) merge pendente.
+Sao alteracoes na mesma linha, mesma funcao entre merges de ramos
+
+
+
+
+SERVIDOR: git init --bare => cria um repositorio num servidor para outros acessarem
+
+CLIENTE: git clone file:////servidor/projetos/cliente1 prjrede1 => clonará para a pasta prjrede1
+
+CLIENTE: git remote => mostra o nome de seru servidor remoto, por padrao quando se faz um clone ele se chama origin
+CLIENTE: git push origin master => vai enviar do master para o origin
+
+git pull origin master => faz um update (merge) para o meu repositorio atual, na maioria das vezes o pull serve bem 
+
+git fetch origin (branch) => faz um merge para outro ramo, assim nao mistura com o seu ramo q se esta trabalhando
+
+ssh-keygen => criara chave para poder acessar o github, se colocar senha precisará toda hora colocar a senha qdo enviar para o github. ENTER ENTER
+pega as chaves criadas na pasta que ele informou, id_rsa.pub copia a chave e vai para o github
+
+No github Account settings
+ssh keys,Nome, chave
+
+Criar um repositorio no github
+
+git clone nome_ssh nome_destino
+yes
+
+fork => clone de alguem do servidor para o seu repositorio tb no servidor. É só clicar no botao fork do usuario que deseja colaborar
+pull request => clica no botao pull request e segue a interface
+para deletar um repositorio, vai no repositorio q deseja deletar, clicar no botao Settings, Delete this repository, confirma o nome do repositorio e delete
+
+
+fonte: Canal RBtech no Youtube
+
+
+…or create a new repository on the command line
+
+echo "# comandos_git" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/rafaelcb21/comandos_git.git
+git push -u origin master
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/rafaelcb21/comandos_git.git
+git push -u origin master
+
